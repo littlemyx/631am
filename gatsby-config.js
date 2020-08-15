@@ -6,7 +6,12 @@
 
 module.exports = {
   /* Your site config here */
+
+  siteMetadata: {
+    title: "631am.com",
+  },
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-root-import",
     {
       resolve: `gatsby-plugin-manifest`,
