@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sunrise {
+  position: relative;
+}
+
+.sunrise:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 15px;
+  background: linear-gradient(
+    -90deg,
+    rgba(255, 255, 255, 0) 20%,
+    #fff 50%,
+    #fff 100%
+  );
+}
+
+.sunrise:after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 15px;
+  margin-left: -15px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 20%,
+    #fff 50%,
+    #fff 100%
+  );
+}
