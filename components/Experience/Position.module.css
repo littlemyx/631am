@@ -1,0 +1,37 @@
+.wrapper {
+  margin-bottom: 20px;
+}
+
+.position {
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.period {
+  margin-top: 3px;
+  line-height: 13px;
+  color: #484848;
+  font-size: 13px;
+}
+
+.company {
+  line-height: 20px;
+  font-size: 20px;
+}
+
+.achievements {
+  color: #484848;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.achievementsList {
+  padding-left: 20px;
+}
+
+.description {
+  line-height: 15px;
+  letter-spacing: 0.001rem;
+  font-size: 13px;
+}

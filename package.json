@@ -1,36 +1,24 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "name": "next-631am",
   "version": "0.1.0",
-  "license": "0BSD",
+  "private": true,
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next build && next export",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "gatsby": "^2.24.26",
-    "gatsby-plugin-google-fonts": "^1.0.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "gatsby-plugin-manifest": "^2.4.23",
-    "gatsby-plugin-react-helmet": "^3.3.10",
-    "gatsby-plugin-root-import": "^2.0.5",
-    "prettier": "2.0.5",
-    "react-helmet": "^6.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "@types/node": "17.0.18",
+    "@types/react": "17.0.39",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
+    "typescript": "4.5.5"
   }
 }

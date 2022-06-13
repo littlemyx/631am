@@ -1,0 +1,33 @@
+.title {
+  color: #484848;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.position {
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.company {
+  line-height: 20px;
+  font-size: 20px;
+}
+
+.period {
+  margin-top: 3px;
+  line-height: 13px;
+  color: #484848;
+  font-size: 13px;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 20px;
+}

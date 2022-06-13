@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact {
+  list-style-type: none;
+}
+
+.link {
+  display: flex;
+  margin-bottom: 7px;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link,
+.link:visited {
+  color: black;
+}
+
+.name {
+  margin-left: 5px;
+}

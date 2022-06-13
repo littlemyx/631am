@@ -1,0 +1,45 @@
+[
+  {
+    "company": "Mail.ru/VK",
+    "position": "Team Lead",
+    "period": { "from": "10.08.2021", "to": null },
+    "achievements": [
+      "Responsible for the process of integration corporate design system into our project to speed up creating new visual features as a manager",
+      "Support creation of UI Kit for corporate design system as a developer",
+      "Redesigned the flow of the feature development process which let us to make it more predictable."
+    ]
+  },
+  {
+    "company": "Mail.ru",
+    "position": "Senior Frontend Developer",
+    "period": { "from": "17.07.2017", "to": "10.08.2021" },
+    "achievements": [
+      "Led the process of migration from the legacy tech stack (Jinja2 + Backbone.js + JQuery) to the new one (React + Redux). Created the tech roadmap, managed the stakeholders, and balanced developing product features and following the tech plan. Helped the team to dive deep into details of the new stack. The project was successfully completed and gave us the ability to create fast A/B tests and fast product experiments without any dependencies of other departments.",
+      "Was the initiator and the responsible one for adding to the development flow unit tests writing stage, which decreased the amount of bugfixing tasks.",
+      "Created some supporting tools for the team (e.g. fast mock generator).",
+      "Started weekly meetups for better team understanding of aspects of the project (for improving testing cycle time of technical features)."
+    ]
+  },
+  {
+    "company": "Unitera",
+    "position": "Frontend Developer",
+    "period": { "from": "01.06.2016", "to": "17.07.2017" },
+    "achievements": [
+      "Developed reusable UI components set over SAP's proprietary library for kickstarting new projects."
+    ]
+  },
+  {
+    "company": "Mirapolis",
+    "position": "Frontend Developer",
+    "period": { "from": "13.01.2016", "to": "01.06.2016" },
+    "achievements": ["Virtual classroom service development."]
+  },
+  {
+    "company": "FSUE GosNII GA",
+    "position": "Fullstack Developer",
+    "period": { "from": "11.11.2014", "to": "01.01.2016" },
+    "achievements": [
+      "Our team was responsible for the aircraft and supporting systems monitoring service."
+    ]
+  }
+]
