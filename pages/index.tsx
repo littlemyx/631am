@@ -10,8 +10,8 @@ const Home: NextPage = () => {
     <>
       <Head>
         <meta charSet="utf-8" />
-        <title>My experiments</title>
-        <link rel="canonical" href="http://631am.com/experiments" />
+        <title>Andrei Mukhin&apos;s Home Page</title>
+        <link rel="canonical" href="http://631am.com" />
       </Head>
       <div className={css.wrapper}>
         <div className={css.body}>

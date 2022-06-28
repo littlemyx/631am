@@ -10,15 +10,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.1.2",
+    "@next/mdx": "^12.2.0",
+    "dayjs": "^1.11.3",
+    "glob": "^8.0.3",
+    "gray-matter": "^4.0.3",
     "next": "12.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "@types/node": "17.0.18",
     "@types/react": "17.0.39",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
+    "eslint-plugin-mdx": "^2.0.0",
     "typescript": "4.5.5"
   }
 }
