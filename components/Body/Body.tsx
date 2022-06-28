@@ -6,6 +6,7 @@ import Contacts from "@/components/Contacts";
 import Description from "@/components/Description";
 import Experiments from "@/components/Experiments";
 import CV from "@/components/CV";
+import Articles from "@/components/Articles";
 
 import css from "./Body.module.css";
 
@@ -24,6 +25,9 @@ const Body = () => {
       </div> */}
       <div>
         <CV />
+      </div>
+      <div>
+        <Articles />
       </div>
       <br />
       <div>
