@@ -26,9 +26,9 @@ const Body = () => {
       <div>
         <CV />
       </div>
-      <div>
+      {/* <div>
         <Articles />
-      </div>
+      </div> */}
       <br />
       <div>
         <Contacts />
