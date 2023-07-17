@@ -1,0 +1,12 @@
+.wrapper {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #ece7e7;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.wrapper:active {
+  transform: scale(0.95);
+}

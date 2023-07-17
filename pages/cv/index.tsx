@@ -31,9 +31,6 @@ function Experiments() {
           <div className={css.leftColumn}>
             <Experience />
           </div>
-          <div className={css.rightColumn}>
-            <AdditionalInfo />
-          </div>
         </div>
       </div>
     </>

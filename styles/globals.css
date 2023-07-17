@@ -20,3 +20,10 @@ ul,
 li {
   margin: 0;
 }
+
+:root {
+  --deflation-x: 0px;
+  --negative-deflation-x: 0px;
+  --deflation-y: 0px;
+  --negative-deflation-y: 0px;
+}

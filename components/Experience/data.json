@@ -41,5 +41,13 @@
     "achievements": [
       "Our team was responsible for the aircraft and supporting systems monitoring service."
     ]
+  },
+  {
+    "company": "GRCC",
+    "position": "Junior Frontend Developer",
+    "period": { "from": "09.2013", "to": "09.2014" },
+    "achievements": [
+      "Developing different layers for leaflet maps (e.g. custom markers, custom popups, etc.)."
+    ]
   }
 ]
