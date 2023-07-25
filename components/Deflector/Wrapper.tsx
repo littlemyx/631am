@@ -1,4 +1,9 @@
-import React, { PropsWithChildren, useCallback, useEffect } from "react";
+import React, {
+  PropsWithChildren,
+  useCallback,
+  useEffect,
+  useRef
+} from "react";
 
 import { useDeflectorActivator } from "./hooks";
 
@@ -6,17 +11,18 @@ import { DeflectorContext } from "./context";
 
 export const Wrapper = ({ children }: PropsWithChildren<{}>) => {
   const state = useDeflectorActivator();
+  const initialOffset = useRef(0);
 
   const mouseMoveHandler = useCallback((event: MouseEvent) => {
     const { clientX, clientY } = event;
 
     document.documentElement.style.setProperty(
       "--deflation-x",
-      `${clientX - window.innerWidth / 2}px`
+      `${clientX + initialOffset.current - window.innerWidth / 2}px`
     );
     document.documentElement.style.setProperty(
       "--deflation-y",
-      `${clientY - window.innerHeight / 2}px`
+      `${clientY + initialOffset.current - window.innerHeight / 2}px`
     );
   }, []);
 

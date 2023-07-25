@@ -11,7 +11,10 @@ import css from "./ScrollingDeflection.module.css";
 export const ScrollingDeflectionPage = () => {
   return (
     <Deflector.Wrapper>
-      <Deflector.Background>
+      <Deflector.Background
+        perspectiveClassName={css.perspectveWrapper}
+        backgroundClassName={css.backgroundWrapper}
+      >
         <div className={css.wrapper}>
           <Deflector.Item>
             <Card>
@@ -19,18 +22,19 @@ export const ScrollingDeflectionPage = () => {
                 <span>Some text inside the box</span>
               </div>
             </Card>
-          </Deflector.Item>
 
-          <br />
-          <Deflector.Item>
+            <br />
+            <br />
+
             <Card>
               <div style={{ width: "400px" }}>
                 <span>Some text inside the box</span>
               </div>
             </Card>
-          </Deflector.Item>
-          <br />
-          <Deflector.Item>
+
+            <br />
+            <br />
+
             <Card>
               <div style={{ width: "400px" }}>
                 <span>Some text inside the box</span>
@@ -50,7 +54,7 @@ export const ScrollingDeflectionPage = () => {
           <Deflector.Consumer>
             {({ toggleDeflector, isDeflectorActive }) => (
               <Button onClick={toggleDeflector}>
-                Turn {isDeflectorActive ? "on" : "off"}
+                Turn {isDeflectorActive ? "off" : "on"}
               </Button>
             )}
           </Deflector.Consumer>

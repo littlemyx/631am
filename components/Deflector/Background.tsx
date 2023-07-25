@@ -3,19 +3,35 @@ import classNames from "classnames";
 
 import { DeflectorContext } from "./context";
 
-import css from "./Item.module.css";
+import css from "./Deflector.module.css";
 
-export const Background = ({ children }: PropsWithChildren<{}>) => {
+interface BackgroundProps {
+  perspectiveClassName?: string;
+  backgroundClassName?: string;
+}
+
+export const Background = ({
+  children,
+  perspectiveClassName,
+  backgroundClassName
+}: PropsWithChildren<BackgroundProps>) => {
   const state = useContext(DeflectorContext);
 
   return (
     <div
-      className={classNames(css.bodyWrapper, {
-        [css.active]: state?.isDeflectorActive,
-        [css.inactive]: !state?.isDeflectorActive
-      })}
+      className={classNames(
+        perspectiveClassName,
+        css.backgroundPespectiveLayer
+      )}
     >
-      {children}
+      <div
+        className={classNames(backgroundClassName, css.backgroundWrapper, {
+          [css.active]: state?.isDeflectorActive,
+          [css.inactive]: !state?.isDeflectorActive
+        })}
+      >
+        {children}
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import { DeflectorContext } from "./context";
 
-import css from "./Item.module.css";
+import css from "./Deflector.module.css";
 
 export const Item = ({ children }: PropsWithChildren<{}>) => {
   const state = useContext(DeflectorContext);
