@@ -1,1 +1,1 @@
-export { ScrollingDeflectionPage as default } from "./ScrollingDeflectionPage";
+export { default } from "./ScrollingDeflectionPage";

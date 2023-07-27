@@ -8,7 +8,7 @@ import { Deflector } from "@/components/Deflector";
 
 import css from "./ScrollingDeflection.module.css";
 
-export const ScrollingDeflectionPage = () => {
+const ScrollingDeflectionPage = () => {
   return (
     <Deflector.Wrapper>
       <Deflector.Background
@@ -63,3 +63,5 @@ export const ScrollingDeflectionPage = () => {
     </Deflector.Wrapper>
   );
 };
+
+export default ScrollingDeflectionPage;
