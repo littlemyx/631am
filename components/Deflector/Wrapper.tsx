@@ -18,11 +18,19 @@ export const Wrapper = ({ children }: PropsWithChildren<{}>) => {
 
     document.documentElement.style.setProperty(
       "--deflation-x",
-      `${clientX + initialOffset.current - window.innerWidth / 2}px`
+      `${clientX + initialOffset.current - window.innerWidth / 2}`
     );
     document.documentElement.style.setProperty(
       "--deflation-y",
-      `${clientY + initialOffset.current - window.innerHeight / 2}px`
+      `${clientY + initialOffset.current - window.innerHeight / 2}`
+    );
+    document.documentElement.style.setProperty(
+      "--deflation-x-ratio",
+      `${(clientX - window.innerWidth / 2) / (window.innerWidth / 2)}`
+    );
+    document.documentElement.style.setProperty(
+      "--deflation-y-ratio",
+      `${(clientY - window.innerHeight / 2) / (window.innerHeight / 2)}`
     );
   }, []);
 

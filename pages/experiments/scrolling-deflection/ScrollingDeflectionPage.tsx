@@ -22,19 +22,44 @@ const ScrollingDeflectionPage = () => {
                 <span>Some text inside the box</span>
               </div>
             </Card>
+          </Deflector.Item>
 
-            <br />
-            <br />
+          <br />
+          <br />
 
-            <Card>
-              <div style={{ width: "400px" }}>
-                <span>Some text inside the box</span>
-              </div>
-            </Card>
+          <div
+            style={{
+              display: "flex",
+              width: "800px",
+              justifyContent: "space-around"
+            }}
+          >
+            <Deflector.Item>
+              <Card>
+                <div style={{ width: "100px" }}>
+                  <span>Some text inside the box</span>
+                </div>
+              </Card>
+            </Deflector.Item>
+            <Deflector.Item>
+              <Card>
+                <div style={{ width: "200px" }}>
+                  <span>Some text inside the box</span>
+                </div>
+              </Card>
+            </Deflector.Item>
+            <Deflector.Item>
+              <Card>
+                <div style={{ width: "100px" }}>
+                  <span>Some text inside the box</span>
+                </div>
+              </Card>
+            </Deflector.Item>
+          </div>
 
-            <br />
-            <br />
-
+          <br />
+          <br />
+          <Deflector.Item>
             <Card>
               <div style={{ width: "400px" }}>
                 <span>Some text inside the box</span>

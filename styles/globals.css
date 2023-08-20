@@ -28,7 +28,8 @@ li {
 
 :root {
   --deflation-x: 0px;
+  --deflation-x-ratio: 0;
   --negative-deflation-x: 0px;
-  --deflation-y: 0px;
+  --deflation-y-ratio: 0;
   --negative-deflation-y: 0px;
 }
