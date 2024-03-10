@@ -30,7 +30,7 @@
         calc(-1 * var(--deflation-y) * 1px),
         100px
       )
-      rotate3d(1, 0, 0, var(--rotation-y)) rotate3d(0, 1, 0, var(--rotation-x));
+      rotate3d(0, 1, 0, var(--rotation-x)) rotate3d(1, 0, 0, var(--rotation-y));
   }
 }
 

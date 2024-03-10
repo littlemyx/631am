@@ -17,3 +17,15 @@
   background-color: white;
   height: 100%;
 }
+
+.rangeWrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  margin: 30px;
+  border: 1px solid lightgray;
+  background-color: white;
+}

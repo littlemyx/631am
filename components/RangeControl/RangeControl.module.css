@@ -1,0 +1,8 @@
+.rangeControl {
+  display: flex;
+  flex-direction: row;
+}
+
+.rangeControl + .rangeControl {
+  margin-top: 20px;
+}
