@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  [x-cloak] {
+    display: none !important;
+  }
+  </style>
+  <script src="//unpkg.com/alpinejs@2.8.2" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!-- <div>
+    <h1 class="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+    <div x-data="{ open: false }">
+      <button x-on:click="open = ! open" x-text="open ? 'Collapse' : 'Expand'"></button>
+  
+      <span x-show="open" x-cloak>
+          Content...
+      </span>
+  </div> -->
+  <div x-data="{selected: 0}">
+    <div x-data="{ open: false }"
+        @click="open = !open; selected !== 1 ? selected = 1 : selected = 0;"
+    >
+        test
+    </div>
+    <div x-data="{ open: false }"
+        @click="open = !open; selected !== 2 ? selected = 2 : selected = 0;"
+    >
+        test
+    </div>
+    <span x-text="selected"></span>
+  </div>
+
+</body>
+</html>
