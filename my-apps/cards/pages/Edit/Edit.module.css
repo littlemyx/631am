@@ -1,0 +1,21 @@
+.wrapper {
+}
+
+.wrapperBlocked {
+  overflow: hidden;
+  position: relative;
+  height: min(100px, 100dwh);
+}
+
+.buttonWrapper {
+  border: 0;
+  background-color: transparent;
+}
+
+.itemWrapper {
+  padding: 20px;
+}
+
+.itemWrapper + .itemWrapper {
+  margin-top: 10px;
+}

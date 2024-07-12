@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #fff;
+  width: 80vw;
+  max-width: 260px;
+  height: 300px;
+  box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+
+  padding: 10px;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.buttonWrapper {
+  margin: 10px;
+}
+
+.button {
+  cursor: pointer;
+  width: 100%;
+}

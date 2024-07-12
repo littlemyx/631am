@@ -33,3 +33,15 @@ li {
   --deflation-y-ratio: 0;
   --negative-deflation-y: 0px;
 }
+
+::backdrop {
+  backdrop-filter: blur(3px);
+  pointer-events: all;
+}
+
+:popover-open {
+  width: auto;
+  height: auto;
+  padding: 0 10px;
+  border-radius: 10px;
+}
