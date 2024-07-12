@@ -1,0 +1,22 @@
+.c {
+  position: absolute;
+  max-width: 500px;
+  max-height: 500px;
+  width: 260px;
+  height: 300px;
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+
+.inactiveSide {
+  pointer-events: none;
+}
+
+.container {
+  width: 260px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+}
