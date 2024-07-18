@@ -9,10 +9,22 @@
 .content {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.item {
+  height: 60px;
+  width: min(100%, 260px);
+}
+
+.item + .item {
+  margin-top: 40px;
+}
+
 .button {
   cursor: pointer;
+  height: 100%;
+  width: 100%;
 }

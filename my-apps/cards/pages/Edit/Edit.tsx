@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
+import { DeleteIcon } from "@/icons/Delete";
+
 import { useCardsStore, Pair } from "../../stores/cards";
 import { Card } from "../../components/Card";
+import { Popover } from "../../components/Popover";
 
-import { Popover } from "./components";
+import { EditItemDialogContent } from "./components";
 
 import styles from "./Edit.module.css";
 
@@ -11,36 +14,24 @@ export const Edit = () => {
   const cards = useCardsStore(state => state.cards);
   const updatePair = useCardsStore(state => state.updatePair);
   const updateItem = useCardsStore(state => state.updateItem);
+  const removePair = useCardsStore(state => state.removePair);
+  const removeItem = useCardsStore(state => state.removeItem);
 
   const toggleRef = useRef<HTMLDivElement>(null);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editingCard, setEditingCard] = useState<Pair<any, any> | null>(null);
 
-  const editClickHandler = useCallback(
-    (pair: Pair<any, any>) => () => {
-      setIsEditing(true);
-      setEditingCard(pair);
-      toggleRef.current?.showPopover();
-    },
-    []
-  );
+  const editClickHandler = (pair: Pair<any, any>) => () => {
+    setIsEditing(true);
+    setEditingCard(pair);
+    toggleRef.current?.showPopover();
+  };
 
-  const toggleEventHandler = useCallback(event => {
-    if (event.newState === "hidden") {
-      setIsEditing(false);
-      setEditingCard(null);
-    }
-    console.log("toggle");
+  const popupCloseHandler = useCallback(() => {
+    setIsEditing(false);
+    setEditingCard(null);
   }, []);
-
-  useEffect(() => {
-    toggleRef.current?.addEventListener("toggle", toggleEventHandler);
-
-    return () => {
-      toggleRef.current?.removeEventListener("toggle", toggleEventHandler);
-    };
-  });
 
   const saveHandler = useCallback(
     (value1, value2) => {
@@ -68,28 +59,37 @@ export const Edit = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div id="mypopover" popover="auto" ref={toggleRef}>
-        <button popovertarget="mypopover" popovertargetaction="hide">
-          Hide
-        </button>
-        <h2>Popover heading</h2>
-        <Popover
+      <Popover
+        id="editItem"
+        title="edit"
+        onClose={popupCloseHandler}
+        ref={toggleRef}
+      >
+        <EditItemDialogContent
           value1={editingCard?.pair[0].value}
           value2={editingCard?.pair[1].value}
           onSave={saveHandler}
         />
-      </div>
+      </Popover>
 
       <div className={styles.listWrapper}>
         {Object.values(cards).map(card => (
-          <div
-            key={card.id}
-            className={styles.itemWrapper}
-            popovertarget="mypopover"
-            popovertargetaction="show"
-            onClick={editClickHandler(card)}
-          >
-            <Card text={card.pair[0].value} otherText={card.pair[1].value} />
+          <div key={card.id} className={styles.itemWrapper}>
+            <div onPointerUp={editClickHandler(card)}>
+              <Card text={card.pair[0].value} otherText={card.pair[1].value} />
+            </div>
+            <div>
+              <button
+                className={styles.deleteButton}
+                onPointerUp={() => {
+                  removePair(card.id);
+                  removeItem(card.pair[0].id);
+                  removeItem(card.pair[1].id);
+                }}
+              >
+                <DeleteIcon width={20} height={20} />
+              </button>
+            </div>
           </div>
         ))}
       </div>

@@ -9,7 +9,7 @@ export const AddNew = () => {
 
   const addHandler = useCallback(() => {
     const id = Date.now();
-    addPair(`${id}`, {
+    addPair(`${id}_pair`, {
       id: `${id}_pair`,
       rating: 0,
       pair: [

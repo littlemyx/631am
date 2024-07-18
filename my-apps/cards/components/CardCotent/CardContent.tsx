@@ -1,8 +1,8 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, PointerEvent } from "react";
 import styles from "./CardContent.module.css";
 
 interface CardContentProps {
-  onFlip: () => void;
+  onFlip: (event: PointerEvent<HTMLButtonElement>) => void;
 }
 
 export const CardContent = ({
@@ -13,7 +13,7 @@ export const CardContent = ({
     <div className={styles.wrapper}>
       <div className={styles.content}>{children}</div>
       <div className={styles.buttonWrapper}>
-        <button className={styles.button} onClick={onFlip}>
+        <button className={styles.button} onPointerUp={onFlip}>
           Flip
         </button>
       </div>
