@@ -17,10 +17,14 @@ export const Wrapper = ({
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <div>
-          <button onClick={goToMain}>To Main</button>
+        <div className={styles.buttonWrapper}>
+          <button className={styles.button} onClick={goToMain}>
+            To Main
+          </button>
         </div>
-        <div className={styles.title}>{title}</div>
+        <div className={styles.title}>
+          <p className={styles.titleText}>{title}</p>
+        </div>
       </header>
       <main className={styles.main}>{children}</main>
     </div>

@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  PointerEvent
+} from "react";
 import cx from "classnames";
 import { a, useSpring } from "@react-spring/web";
 
@@ -30,7 +36,8 @@ export const Card = ({ text, otherText }: CardProps) => {
     }
   }, [isRotating]);
 
-  const rotateCard = useCallback(() => {
+  const rotateCard = useCallback((event: PointerEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     setIsRotating(true);
   }, []);
 

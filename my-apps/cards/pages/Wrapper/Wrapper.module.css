@@ -6,11 +6,32 @@
 .header {
   display: flex;
   flex-direction: row;
+  height: 60px;
+}
+
+.buttonWrapper {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  height: 100%;
+  width: 100%;
 }
 
 .title {
-  flex-grow: 1;
+  display: flex;
+  flex-grow: 5;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleText {
+  text-align: center;
 }
 
 .main {
+  margin-top: 40px;
 }

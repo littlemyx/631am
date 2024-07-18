@@ -7,7 +7,11 @@ interface PopoverProps {
   onSave: (value1: string, value2: string) => void;
 }
 
-export const Popover = ({ value1 = "", value2 = "", onSave }: PopoverProps) => {
+export const EditItemDialogContent = ({
+  value1 = "",
+  value2 = "",
+  onSave
+}: PopoverProps) => {
   const [firstValue, setFirstValue] = useState(value1);
   const [secondValue, setSecondValue] = useState(value2);
 

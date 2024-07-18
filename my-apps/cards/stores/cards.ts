@@ -27,6 +27,8 @@ interface CardsActions {
   updatePair: (id: ID, item: Pair<any, any>) => void;
   addItem: (id: ID, value: Item<any>) => void;
   addPair: (id: ID, value: Pair<any, any>) => void;
+  removeItem: (id: ID) => void;
+  removePair: (id: ID) => void;
   lastGenerated: Pair<any, any>[];
   generateSome: (length: number) => void;
 }
@@ -37,14 +39,7 @@ export const useCardsStore = create<CardsState & CardsActions>()(
       set => ({
         items: {},
         cards: {},
-        updateItem: (id, item) =>
-          set(state => {
-            state.items[id] = item;
-          }),
-        updatePair: (id, pair) =>
-          set(state => {
-            state.cards[id] = pair;
-          }),
+
         increaseRating: id =>
           set(state => {
             state.cards[id].rating += 1;
@@ -53,8 +48,23 @@ export const useCardsStore = create<CardsState & CardsActions>()(
           set(state => {
             state.cards[id].rating -= 1;
           }),
+        updateItem: (id, item) =>
+          set(state => {
+            state.items[id] = item;
+          }),
+        updatePair: (id, pair) =>
+          set(state => {
+            state.cards[id] = pair;
+          }),
+        removeItem: (id: ID) =>
+          set(state => {
+            delete state.items[id];
+          }),
+        removePair: (id: ID) =>
+          set(state => {
+            delete state.cards[id];
+          }),
         addItem: (id: ID, value: Item<any>) =>
-          // set(state => ({ items: { ...state.items, [id]: value } })),
           set(state => {
             state.items[id] = value;
           }),
