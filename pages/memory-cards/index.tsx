@@ -20,6 +20,7 @@ function MemoryCards() {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link rel="manifest" href="manifest.json" />
         <title>Memory Cards</title>
         <link rel="canonical" href="http://631am.com/memory-cards" />
       </Head>

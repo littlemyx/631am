@@ -1,4 +1,6 @@
 import { PropsWithChildren, PointerEvent } from "react";
+import cx from "classnames";
+
 import styles from "./CardContent.module.css";
 
 interface CardContentProps {
@@ -13,7 +15,7 @@ export const CardContent = ({
     <div className={styles.wrapper}>
       <div className={styles.content}>{children}</div>
       <div className={styles.buttonWrapper}>
-        <button className={styles.button} onPointerUp={onFlip}>
+        <button className={cx("pressable", styles.button)} onPointerUp={onFlip}>
           Flip
         </button>
       </div>
