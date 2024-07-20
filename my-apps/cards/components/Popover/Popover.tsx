@@ -39,10 +39,15 @@ export const Popover = forwardRef<
   });
 
   return (
+    //@ts-ignore
     <div id={id} popover="auto" ref={innerRef}>
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
-        <button popovertarget={id} popovertargetaction="hide">
+        <button
+          //@ts-ignore
+          popovertarget={id}
+          popovertargetaction="hide"
+        >
           <CloseIcon width={20} height={20} />
         </button>
       </div>

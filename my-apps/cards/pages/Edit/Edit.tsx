@@ -25,6 +25,7 @@ export const Edit = () => {
   const editClickHandler = (pair: Pair<any, any>) => () => {
     setIsEditing(true);
     setEditingCard(pair);
+    // @ts-ignore
     toggleRef.current?.showPopover();
   };
 
@@ -52,6 +53,7 @@ export const Edit = () => {
           value: value2
         });
       }
+      // @ts-ignore
       toggleRef.current?.hidePopover();
     },
     [editingCard]
