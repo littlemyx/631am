@@ -29,8 +29,7 @@ export const Stack = ({ items }: StackProps) => {
     console.log("removing: " + id + " " + direction);
   };
 
-  const outOfFrame = name => {
-    console.log(name + " left the screen!");
+  const outOfFrame = () => {
     setWorkingItems(workingitems.slice(0, workingitems.length - 1));
   };
 
@@ -43,7 +42,7 @@ export const Stack = ({ items }: StackProps) => {
           // flickOnSwipe={false}
           preventSwipe={["up", "down"]}
           onSwipe={dir => swiped(dir, item.id)}
-          onCardLeftScreen={() => outOfFrame(item.id)}
+          onCardLeftScreen={() => outOfFrame()}
         >
           <Card text={item.pair[0].value} otherText={item.pair[1].value} />
         </TinderCard>
