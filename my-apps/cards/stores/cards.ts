@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
-type ID = string;
+export type ID = string;
 
 export interface Item<T> {
   id: ID;
@@ -39,6 +39,7 @@ export const useCardsStore = create<CardsState & CardsActions>()(
       set => ({
         items: {},
         cards: {},
+        lastGenerated: [],
 
         increaseRating: id =>
           set(state => {
@@ -77,7 +78,7 @@ export const useCardsStore = create<CardsState & CardsActions>()(
               [value.pair[1].id]: value.pair[1]
             }
           })),
-        lastGenerated: [],
+
         generateSome: (length: number) =>
           set(state => {
             const store = Object.values(state.cards);
