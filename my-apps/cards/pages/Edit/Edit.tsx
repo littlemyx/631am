@@ -77,7 +77,7 @@ export const Edit = () => {
       <div className={styles.listWrapper}>
         {Object.values(cards).map(card => (
           <div key={card.id} className={styles.itemWrapper}>
-            <div onPointerUp={editClickHandler(card)}>
+            <div onPointerUp={editClickHandler(card as Pair<any, any>)}>
               <Card text={card.pair[0].value} otherText={card.pair[1].value} />
             </div>
             <div>
