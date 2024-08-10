@@ -16,26 +16,30 @@ export interface Pair<T, U> {
   pair: [Item<T>, Item<U>];
 }
 
+const CardsSchema = z.record(
+  z.string(),
+  z.object({
+    rating: z.number(),
+    id: z.string(),
+    pair: z.tuple([
+      z.object({
+        id: z.string(),
+        value: z.any()
+      }),
+      z.object({
+        id: z.string(),
+        value: z.any()
+      })
+    ])
+  })
+);
+
+export type CardsType = z.infer<typeof CardsSchema>;
+
 // Определение схемы состояния с помощью Zod
 export const StateSchema = z.object({
   items: z.record(z.string(), z.object({ id: z.string(), value: z.any() })),
-  cards: z.record(
-    z.string(),
-    z.object({
-      rating: z.number(),
-      id: z.string(),
-      pair: z.tuple([
-        z.object({
-          id: z.string(),
-          value: z.any()
-        }),
-        z.object({
-          id: z.string(),
-          value: z.any()
-        })
-      ])
-    })
-  )
+  cards: CardsSchema
 });
 
 // Тип состояния на основе схемы Zod
@@ -65,7 +69,7 @@ export const useCardsStore = create<CardsState & CardsActions>()(
     persist(
       set => ({
         items: {},
-        cards: {},
+        cards: {} as CardsType,
         lastGenerated: [] as Pair<any, any>[],
 
         increaseRating: id =>
