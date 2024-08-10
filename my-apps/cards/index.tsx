@@ -1,47 +1,23 @@
 import React, { useState } from "react";
+import Head from "next/head";
 
-import { useRoutesStore, RouteStates } from "./stores/router";
-
-import { Wrapper } from "./pages/Wrapper";
-import { Main } from "./pages/Main";
-import { AddNew } from "./pages/AddNew";
-import { Challenge } from "./pages/Challenge";
-
-import styles from "./index.module.css";
-import { Edit } from "./pages/Edit";
+import { Routes } from "./Routes";
 
 function MemoryCards() {
-  const route = useRoutesStore(state => state.route);
-
-  switch (route) {
-    case RouteStates.MAIN:
-    default:
-      return <Main />;
-    case RouteStates.STACK:
-      return (
-        <Wrapper title="Stack">
-          <div className={styles.container}>
-            <Challenge />
-          </div>
-        </Wrapper>
-      );
-    case RouteStates.NEW_ENTITY:
-      return (
-        <Wrapper title="Add New">
-          <div className={styles.container}>
-            <AddNew />
-          </div>
-        </Wrapper>
-      );
-    case RouteStates.EDIT:
-      return (
-        <Wrapper title="Edit">
-          <div className={styles.container}>
-            <Edit />
-          </div>
-        </Wrapper>
-      );
-  }
+  return (
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <title>Memory Cards</title>
+        <link rel="canonical" href="http://631am.com/memory-cards" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+      </Head>
+      <Routes />
+    </>
+  );
 }
 
 export default MemoryCards;

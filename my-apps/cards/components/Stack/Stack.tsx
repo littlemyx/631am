@@ -40,6 +40,8 @@ export const Stack = ({ items }: StackProps) => {
           className={styles.swipe}
           key={item.id}
           // flickOnSwipe={false}
+          swipeRequirementType="position"
+          swipeThreshold={100}
           preventSwipe={["up", "down"]}
           onSwipe={dir => swiped(dir, item.id)}
           onCardLeftScreen={() => outOfFrame()}

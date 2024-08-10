@@ -1,11 +1,13 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  height: 100svh;
 }
 
 .header {
   display: flex;
   flex-direction: row;
+  flex-shrink: 0;
   height: 60px;
 }
 
@@ -34,4 +36,6 @@
 
 .main {
   margin-top: 40px;
+  flex-grow: 1;
+  display: flex;
 }
