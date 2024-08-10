@@ -21,8 +21,10 @@ export const Import = ({ isOpen, onClose }: ImportProps) => {
 
   useEffect(() => {
     if (isOpen) {
+      // @ts-ignore
       toggleRef.current?.showPopover();
     } else {
+      // @ts-ignore
       toggleRef.current?.hidePopover();
     }
   }, [isOpen]);
