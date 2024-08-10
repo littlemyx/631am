@@ -1,0 +1,18 @@
+.wrapper {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
+.normalWidth {
+  width: fit-content;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.big {
+  height: 60px;
+  font-size: 22px;
+}

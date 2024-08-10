@@ -1,6 +1,12 @@
 import react, { useCallback, useEffect, useRef, useState } from "react";
 
 import { useCardsStore } from "../../stores/cards";
+import { Popover } from "../../components/Popover";
+import { Button, ButtonSizes } from "../../components/Button";
+
+import { Import } from "./Import";
+
+import s from "./AddNew.module.css";
 
 export const AddNew = () => {
   const addPair = useCardsStore(state => state.addPair);
@@ -8,6 +14,7 @@ export const AddNew = () => {
   const ref2 = useRef<HTMLInputElement>(null);
 
   const [isAdding, setIsAdding] = useState(false);
+  const [isImporting, setIsImporting] = useState(false);
 
   useEffect(() => {
     if (isAdding) {
@@ -33,12 +40,26 @@ export const AddNew = () => {
     setIsAdding(true);
   }, []);
 
-  return (
-    <div>
-      <input ref={ref1} />
-      <input ref={ref2} />
+  const importHandler = useCallback(() => {
+    setIsImporting(true);
+  }, []);
 
-      <button onClick={addHandler}>Add</button>
+  return (
+    <div className={s.wrapper}>
+      <Import isOpen={isImporting} onClose={() => setIsImporting(false)} />
+      <div className={s.contentWrapper}>
+        <div>
+          <input ref={ref1} />
+          <input ref={ref2} />
+
+          <Button onClick={addHandler}>Add</Button>
+        </div>
+        <div className={s.buttonWrapper}>
+          <Button size={ButtonSizes.BIG} fullWidth onClick={importHandler}>
+            Import
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
