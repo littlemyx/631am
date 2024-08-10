@@ -38,7 +38,9 @@ export const Import = ({ isOpen, onClose }: ImportProps) => {
   }, []);
 
   const importSubmitHandler = useCallback(() => {
-    deserialize(preview);
+    if (preview !== null) {
+      deserialize(preview);
+    }
   }, [preview]);
 
   return (
