@@ -2,6 +2,7 @@ import { PropsWithChildren, PointerEvent } from "react";
 import cx from "classnames";
 
 import styles from "./CardContent.module.css";
+import { Button, ButtonSizes } from "../Button";
 
 interface CardContentProps {
   onFlip: (event: PointerEvent<HTMLButtonElement>) => void;
@@ -15,9 +16,13 @@ export const CardContent = ({
     <div className={styles.wrapper}>
       <div className={styles.content}>{children}</div>
       <div className={styles.buttonWrapper}>
-        <button className={cx("pressable", styles.button)} onPointerUp={onFlip}>
+        <Button
+          size={ButtonSizes.BIG}
+          className={cx("pressable", styles.button)}
+          onPointerUp={onFlip}
+        >
           Flip
-        </button>
+        </Button>
       </div>
     </div>
   );

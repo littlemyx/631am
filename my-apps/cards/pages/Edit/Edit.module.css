@@ -13,6 +13,9 @@
 }
 
 .itemWrapper {
+  position: relative;
+  height: 400px;
+  width: 90vw;
   display: flex;
   padding: 20px;
   justify-content: center;
@@ -20,6 +23,11 @@
 
 .itemWrapper + .itemWrapper {
   margin-top: 10px;
+}
+
+.cardWrapper {
+  position: relative;
+  flex-grow: 1;
 }
 
 .deleteButton {

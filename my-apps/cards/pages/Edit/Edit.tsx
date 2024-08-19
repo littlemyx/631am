@@ -6,9 +6,14 @@ import { useCardsStore, Pair } from "../../stores/cards";
 import { Card } from "../../components/Card";
 import { Popover } from "../../components/Popover";
 
-import { EditItemDialogContent } from "./components";
+import {
+  EditItemDialogContent,
+  ExportDialogContent,
+  ExportPopup
+} from "./components";
 
 import styles from "./Edit.module.css";
+import { Button, ButtonSizes } from "../../components/Button";
 
 export const Edit = () => {
   const cards = useCardsStore(state => state.cards);
@@ -63,7 +68,8 @@ export const Edit = () => {
     <div className={styles.wrapper}>
       <Popover
         id="editItem"
-        title="edit"
+        title="Edit"
+        isParentScrollBlocked
         onClose={popupCloseHandler}
         ref={toggleRef}
       >
@@ -74,14 +80,20 @@ export const Edit = () => {
         />
       </Popover>
 
+      <ExportPopup />
+
       <div className={styles.listWrapper}>
         {Object.values(cards).map(card => (
           <div key={card.id} className={styles.itemWrapper}>
-            <div onPointerUp={editClickHandler(card as Pair<any, any>)}>
+            <div
+              className={styles.cardWrapper}
+              onPointerUp={editClickHandler(card as Pair<any, any>)}
+            >
               <Card text={card.pair[0].value} otherText={card.pair[1].value} />
             </div>
             <div>
-              <button
+              <Button
+                size={ButtonSizes.BIG}
                 className={styles.deleteButton}
                 onPointerUp={() => {
                   removePair(card.id);
@@ -90,7 +102,7 @@ export const Edit = () => {
                 }}
               >
                 <DeleteIcon width={20} height={20} />
-              </button>
+              </Button>
             </div>
           </div>
         ))}

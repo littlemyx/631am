@@ -6,6 +6,7 @@ import React, {
   useRef,
   useImperativeHandle
 } from "react";
+import cx from "classnames";
 
 import { CloseIcon } from "@/icons/Close";
 
@@ -15,12 +16,13 @@ interface PopoverProps {
   id: string;
   title: string;
   onClose: () => void;
+  isParentScrollBlocked?: boolean;
 }
 
 export const Popover = forwardRef<
   HTMLDivElement,
   PropsWithChildren<PopoverProps>
->(({ id, title, onClose, children }, ref) => {
+>(({ id, title, onClose, isParentScrollBlocked, children }, ref) => {
   const innerRef = useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => innerRef.current!, []);
   const toggleEventHandler = useCallback(event => {
@@ -39,8 +41,13 @@ export const Popover = forwardRef<
   });
 
   return (
-    //@ts-ignore
-    <div id={id} popover="auto" ref={innerRef}>
+    <div
+      id={id}
+      //@ts-ignore
+      popover="auto"
+      ref={innerRef}
+      className={cx({ [styles.preventParentScroll]: isParentScrollBlocked })}
+    >
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
         <button
