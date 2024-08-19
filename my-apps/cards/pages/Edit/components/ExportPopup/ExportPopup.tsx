@@ -9,6 +9,7 @@ export const ExportPopup = () => {
   const toggleRef = useRef<HTMLDivElement>(null);
 
   const exportClickHandler = useCallback(() => {
+    // @ts-ignore
     toggleRef.current?.showPopover();
   }, []);
 
