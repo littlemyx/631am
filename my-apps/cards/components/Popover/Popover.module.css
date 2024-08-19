@@ -1,3 +1,7 @@
+.preventParentScroll {
+  overscroll-behavior: contain;
+}
+
 .header {
   display: flex;
 }
