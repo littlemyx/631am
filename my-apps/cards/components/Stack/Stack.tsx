@@ -16,7 +16,7 @@ interface StackProps {
 }
 
 export const Stack = ({ items }: StackProps) => {
-  const [workingitems, setWorkingItems] = useState(items);
+  const [workingitemsNumber, setWorkingItemsNumber] = useState(items.length);
   const increaseRating = useCardsStore(state => state.increaseRating);
   const decreaseRating = useCardsStore(state => state.decreaseRating);
 
@@ -30,12 +30,14 @@ export const Stack = ({ items }: StackProps) => {
   };
 
   const outOfFrame = () => {
-    setWorkingItems(workingitems.slice(0, workingitems.length - 1));
+    setWorkingItemsNumber(state => state - 1);
   };
+
+  console.log(workingitemsNumber);
 
   return (
     <div className={styles.cardContainer}>
-      {workingitems.map(item => (
+      {items.map(item => (
         <TinderCard
           className={styles.swipe}
           key={item.id}
@@ -49,6 +51,11 @@ export const Stack = ({ items }: StackProps) => {
           <Card text={item.pair[0].value} otherText={item.pair[1].value} />
         </TinderCard>
       ))}
+      {workingitemsNumber === 0 && (
+        <div>
+          <p>No more cards</p>
+        </div>
+      )}
     </div>
   );
 };

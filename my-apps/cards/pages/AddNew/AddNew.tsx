@@ -21,7 +21,9 @@ export const AddNew = () => {
       const id = Date.now();
       addPair(`${id}_pair`, {
         id: `${id}_pair`,
-        rating: 0,
+        weight: 0,
+        lastReviewed: null,
+        nextReview: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
         pair: [
           { id: `${id}_a`, value: ref1.current?.value },
           { id: `${id}_b`, value: ref2.current?.value }
