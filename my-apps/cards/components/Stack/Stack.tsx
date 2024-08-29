@@ -5,7 +5,8 @@ import TinderCard from "react-tinder-card";
 
 import { Card } from "../../components/Card";
 
-import { Pair, ID, useCardsStore } from "../../stores/cards";
+import { useCardsStore } from "../../stores/cards";
+import { Pair, ID } from "../../stores/types";
 
 import styles from "./Stack.module.css";
 
@@ -32,8 +33,6 @@ export const Stack = ({ items }: StackProps) => {
   const outOfFrame = () => {
     setWorkingItemsNumber(state => state - 1);
   };
-
-  console.log(workingitemsNumber);
 
   return (
     <div className={styles.cardContainer}>

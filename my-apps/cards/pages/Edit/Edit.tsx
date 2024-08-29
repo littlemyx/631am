@@ -2,7 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { DeleteIcon } from "@/icons/Delete";
 
-import { useCardsStore, Pair } from "../../stores/cards";
+import { useCardsStore } from "../../stores/cards";
+import { Pair } from "../../stores/types";
 import { Card } from "../../components/Card";
 import { Popover } from "../../components/Popover";
 

@@ -26,7 +26,7 @@ export const Popover = forwardRef<
   const innerRef = useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => innerRef.current!, []);
   const toggleEventHandler = useCallback(event => {
-    if (event.newState === "hidden") {
+    if (event.newState === "closed") {
       onClose();
     }
     console.log("toggle");

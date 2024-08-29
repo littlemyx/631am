@@ -4,9 +4,12 @@ import { JsonEditor } from "json-edit-react";
 import { Popover } from "../../components/Popover";
 import { Button } from "../../components/Button";
 
-import { StateSchema, CardsState, useCardsStore } from "../../stores/cards";
+import { useCardsStore } from "../../stores/cards";
+import { TypeOfError } from "../../stores/types";
 
 import { FileReaderComponent } from "./FileReaderComponent";
+import { on } from "events";
+import { set } from "zod";
 
 interface ImportProps {
   isOpen: boolean;
@@ -18,6 +21,14 @@ export const Import = ({ isOpen, onClose }: ImportProps) => {
   const toggleRef = useRef<HTMLDivElement>(null);
 
   const deserialize = useCardsStore(state => state.deserialize);
+  const resetError = useCardsStore(state => state.resetError);
+  const error = useCardsStore(state => {
+    const { errors } = state;
+    if (errors.import) {
+      return errors.import;
+    }
+    return null;
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -43,14 +54,20 @@ export const Import = ({ isOpen, onClose }: ImportProps) => {
     }
   }, [preview]);
 
+  const closeHandler = useCallback(() => {
+    setPreview(null);
+    onClose();
+    resetError(TypeOfError.Values.import);
+  }, []);
+
   return (
     <Popover
       id="importFromFile"
       title="Import"
-      onClose={onClose}
+      onClose={closeHandler}
       ref={toggleRef}
     >
-      <FileReaderComponent onReady={fileReaderReadyHandler} />
+      <FileReaderComponent onReady={fileReaderReadyHandler} isOpen={isOpen} />
       {preview && (
         <>
           <details>
@@ -63,6 +80,11 @@ export const Import = ({ isOpen, onClose }: ImportProps) => {
 
           <Button onClick={importSubmitHandler}>Add to my cards</Button>
         </>
+      )}
+      {error && (
+        <div>
+          An error has occured:<code>{error.text}</code>
+        </div>
       )}
     </Popover>
   );
