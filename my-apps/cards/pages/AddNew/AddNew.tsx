@@ -7,9 +7,12 @@ import { Button, ButtonSizes } from "../../components/Button";
 import { Import } from "./Import";
 
 import s from "./AddNew.module.css";
+import { TypeOfError } from "../../stores/types";
 
 export const AddNew = () => {
+  const ref = useRef<HTMLDivElement>(null);
   const addPair = useCardsStore(state => state.addPair);
+  const resetError = useCardsStore(state => state.resetError);
   const ref1 = useRef<HTMLInputElement>(null);
   const ref2 = useRef<HTMLInputElement>(null);
 
@@ -44,11 +47,23 @@ export const AddNew = () => {
 
   const importHandler = useCallback(() => {
     setIsImporting(true);
+    resetError(TypeOfError.Values.import);
   }, []);
 
+  const closeHandler = useCallback(() => {
+    setIsImporting(false);
+  }, []);
+
+  useEffect(
+    () => () => {
+      console.log(ref.current);
+    },
+    []
+  );
+
   return (
-    <div className={s.wrapper}>
-      <Import isOpen={isImporting} onClose={() => setIsImporting(false)} />
+    <div ref={ref} className={s.wrapper}>
+      <Import isOpen={isImporting} onClose={closeHandler} />
       <div className={s.contentWrapper}>
         <div>
           <input ref={ref1} />

@@ -10,9 +10,9 @@ interface PopoverProps {}
 
 export const ExportDialogContent = ({}: PopoverProps) => {
   const cards = useCardsStore(state => state.cards);
-  const pairs = useCardsStore(state => state.items);
+  const items = useCardsStore(state => state.items);
 
-  const store = { cards, pairs };
+  const store = { cards, items };
 
   let blob = new Blob([JSON.stringify(store)], {
     type: "application/json"

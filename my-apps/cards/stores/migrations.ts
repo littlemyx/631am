@@ -1,4 +1,4 @@
-import { Pair } from "./cards";
+import { Pair } from "./types";
 
 export const migration = (version: number) => {
   switch (version) {

@@ -1,10 +1,12 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect, useRef } from "react";
 
 interface FileReaderProps {
   onReady: (content: string) => void;
+  isOpen: boolean;
 }
 
-export const FileReaderComponent = ({ onReady }: FileReaderProps) => {
+export const FileReaderComponent = ({ onReady, isOpen }: FileReaderProps) => {
+  const ref = useRef<HTMLInputElement>(null);
   const readFile = (event: ChangeEvent<HTMLInputElement>) => {
     const fileReader = new FileReader();
     const { files } = event.target;
@@ -21,5 +23,11 @@ export const FileReaderComponent = ({ onReady }: FileReaderProps) => {
     );
   };
 
-  return <input type="file" onChange={readFile} />;
+  useEffect(() => {
+    if (!isOpen) {
+      ref.current!.value = "";
+    }
+  }, [isOpen]);
+
+  return <input ref={ref} type="file" onChange={readFile} />;
 };

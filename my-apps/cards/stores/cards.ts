@@ -1,79 +1,36 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
-import { z } from "zod";
+
 import { migration } from "./migrations";
 import { VERSION } from "./version";
 
-export type ID = string;
+import {
+  CardsState,
+  CardsActions,
+  ErrorState,
+  ErrorsActions,
+  CardsType,
+  Pair,
+  ID,
+  Item,
+  StateSchema
+} from "./types";
+import { error } from "console";
+import { stat } from "fs";
 
-export interface Item<T> {
-  id: ID;
-  value: T;
-}
-
-export interface Pair<T, U> {
-  weight: number;
-  lastReviewed: Date | null;
-  nextReview: Date;
-  id: ID;
-  pair: [Item<T>, Item<U>];
-}
-
-const CardsSchema = z.record(
-  z.string(),
-  z.object({
-    weight: z.number(),
-    lastReviewed: z.date().nullable(),
-    nextReview: z.date(),
-    id: z.string(),
-    pair: z.tuple([
-      z.object({
-        id: z.string(),
-        value: z.any()
-      }),
-      z.object({
-        id: z.string(),
-        value: z.any()
-      })
-    ])
-  })
-);
-
-export type CardsType = z.infer<typeof CardsSchema>;
-
-// Определение схемы состояния с помощью Zod
-export const StateSchema = z.object({
-  items: z.record(z.string(), z.object({ id: z.string(), value: z.any() })),
-  cards: CardsSchema
-});
-
-// Тип состояния на основе схемы Zod
-export type CardsState = z.infer<typeof StateSchema>;
-
-// interface CardsState {
-//   items: Record<ID, Item<any>>;
-//   cards: Record<ID, Pair<any, any>>;
-// }
-
-interface CardsActions {
-  deserialize: (state: string) => void;
-  increaseRating: (id: ID) => void;
-  decreaseRating: (id: ID) => void;
-  updateItem: (id: ID, pair: Item<any>) => void;
-  updatePair: (id: ID, item: Pair<any, any>) => void;
-  addItem: (id: ID, value: Item<any>) => void;
-  addPair: (id: ID, value: Pair<any, any>) => void;
-  removeItem: (id: ID) => void;
-  removePair: (id: ID) => void;
-  lastGenerated: Pair<any, any>[];
-  generateSome: (length: number) => void;
-}
-
-export const useCardsStore = create<CardsState & CardsActions>()(
+export const useCardsStore = create<
+  CardsState & CardsActions & ErrorState & ErrorsActions
+>()(
   immer(
     persist(
       set => ({
+        resetError: errorType =>
+          set(state => {
+            const { [errorType]: _, ...rest } = state.errors;
+            state.errors = { ...rest };
+          }),
+        errors: {},
         items: {},
         cards: {} as CardsType,
         lastGenerated: [] as Pair<any, any>[],
@@ -166,7 +123,31 @@ export const useCardsStore = create<CardsState & CardsActions>()(
 
         deserialize: (data: string) =>
           set(state => {
-            const parsedState = JSON.parse(data || "{}");
+            let parsedState;
+            try {
+              parsedState = JSON.parse(data || "{}");
+            } catch (e) {
+              console.error("Invalid JSON:", e);
+            }
+            parsedState.cards = Object.entries(parsedState.cards).reduce(
+              (prev, [key, value]) => {
+                const { lastReviewed, nextReview, ...rest } = value as Pair<
+                  any,
+                  any
+                > & {
+                  rating: number;
+                };
+                return {
+                  ...prev,
+                  [key]: {
+                    ...rest,
+                    lastReviewed: lastReviewed && new Date(lastReviewed),
+                    nextReview: new Date(nextReview)
+                  }
+                };
+              },
+              {}
+            );
             const result = StateSchema.safeParse(parsedState);
 
             if (result.success) {
@@ -180,6 +161,9 @@ export const useCardsStore = create<CardsState & CardsActions>()(
               };
             } else {
               console.error("Invalid state:", result.error.errors);
+              state.errors.import = {
+                text: JSON.stringify(result.error.errors)
+              };
             }
           })
       }),
