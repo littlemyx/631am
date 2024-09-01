@@ -1,31 +1,11 @@
-import { Pair } from "./types";
+import { converter } from "./migrations/versions/v0";
 
 export const migration = (version: number) => {
   switch (version) {
     case 0:
       return (persistedState: any) => {
-        const store = {
-          ...persistedState,
-          cards: Object.entries(persistedState.cards).reduce(
-            (prev, [key, value]) => {
-              const { rating, ...rest } = value as Pair<any, any> & {
-                rating: number;
-              };
-              return {
-                ...prev,
-                [key]: {
-                  ...(rest as Pair<any, any>),
-                  weight: 0,
-                  lastReviewed: null,
-                  nextReview: new Date(
-                    new Date().getTime() + 24 * 60 * 60 * 1000
-                  )
-                }
-              };
-            },
-            {}
-          )
-        };
+        const store = converter(persistedState);
+
         return { version: 1, store };
       };
     case 1:

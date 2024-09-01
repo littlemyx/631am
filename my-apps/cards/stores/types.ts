@@ -84,3 +84,5 @@ export interface CardsActions {
   lastGenerated: Pair<any, any>[];
   generateSome: (length: number) => void;
 }
+
+export type StoreType = CardsState & CardsActions & ErrorState & ErrorsActions;
