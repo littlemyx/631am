@@ -7,21 +7,17 @@ import { VERSION } from "./version";
 
 import {
   CardsState,
-  CardsActions,
-  ErrorState,
-  ErrorsActions,
   CardsType,
   Pair,
   ID,
   Item,
-  StateSchema
+  StateSchema,
+  StoreType
 } from "./types";
 import { error } from "console";
 import { stat } from "fs";
 
-export const useCardsStore = create<
-  CardsState & CardsActions & ErrorState & ErrorsActions
->()(
+export const useCardsStore = create<StoreType>()(
   immer(
     persist(
       set => ({
