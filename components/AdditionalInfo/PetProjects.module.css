@@ -1,3 +1,6 @@
+.project {
+  margin-top: 40px;
+}
 .title {
   color: #484848;
   font-weight: bold;
@@ -19,7 +22,7 @@
 .period {
   margin-top: 3px;
   line-height: 13px;
-  color: #484848;
+  color: #8c8c8c;
   font-size: 13px;
 }
 
@@ -27,7 +30,14 @@
   margin-top: 20px;
 }
 
+.status {
+  color: #8c8c8c;
+}
+
+.website {
+  color: #8c8c8c;
+}
+
 .link {
   display: inline-block;
-  margin-top: 20px;
 }
