@@ -18,10 +18,10 @@ function Experiments() {
             </a>
           </li>
           <li className={css.item}>
-            <p>Telephone: +4917641835027</p>
+            <p>Phone: +4917641835027</p>
           </li>
           <li className={css.item}>
-            <p>Address: Germany, Berlin, Henriette-Lustig-Str 11</p>
+            <p>Location: Germany, Berlin</p>
           </li>
         </ul>
       </div>

@@ -12,20 +12,8 @@ const AdditionalInfo = () => {
   return (
     <div>
       <div className={css.item}>
-        <Item title="SKILLS">
-          <Skills />
-        </Item>
-      </div>
-
-      <div className={css.item}>
         <Item title="PET PROJECTS">
           <PetProjects />
-        </Item>
-      </div>
-
-      <div className={css.item}>
-        <Item title="INTERESTS">
-          <Interests />
         </Item>
       </div>
     </div>
