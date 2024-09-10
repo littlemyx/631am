@@ -1,8 +1,18 @@
 [
   {
+    "company": "JetBrains",
+    "position": "Senior Software Developer",
+    "period": { "from": "15.01.2023", "to": null },
+    "achievements": [
+      "Developing the Grazie browser extension, AI chat platform, admin panels and auxilary web services.",
+      "Set up analytics pipeline based on Google Analytics and Google Tag Manager (including product analytics for the extension).",
+      "Introduced the testing environment (unit, e2e, visual regression) for all projects on Playwright and Jest."
+    ]
+  },
+  {
     "company": "Mail.ru/VK",
     "position": "Team Lead",
-    "period": { "from": "10.08.2021", "to": null },
+    "period": { "from": "10.08.2021", "to": "15.01.2023" },
     "achievements": [
       "Responsible for the process of integration corporate design system into our project to speed up creating new visual features as a manager",
       "Support creation of UI Kit for corporate design system as a developer",

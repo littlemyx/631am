@@ -25,6 +25,7 @@ const Experience = () => {
       <br />
       <div className={css.title}>Languages</div>
       <p>English - C1</p>
+      <p>German - A1</p>
       <br />
       <br />
       <p className={css.title}>WORK EXPERIENCE</p>

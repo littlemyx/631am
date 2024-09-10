@@ -18,18 +18,10 @@ function Experiments() {
             </a>
           </li>
           <li className={css.item}>
-            <p>Telephone: +79999863928</p>
+            <p>Telephone: +4917641835027</p>
           </li>
           <li className={css.item}>
-            <p>
-              Address: Russian Federation, Moscow, 4y Vyatskiy per. 35, flat 47
-            </p>
-          </li>
-          <li className={css.item}>
-            <p>
-              Date and place of birth: 20 Jan 1992, Russian Federation city
-              Saratov
-            </p>
+            <p>Address: Germany, Berlin, Henriette-Lustig-Str 11</p>
           </li>
         </ul>
       </div>
