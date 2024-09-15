@@ -4,7 +4,8 @@ export enum RouteStates {
   MAIN = "MAIN",
   STACK = "STACK",
   NEW_ENTITY = "NEW_ENTITY",
-  EDIT = "EDIT"
+  EDIT = "EDIT",
+  SETTINGS = "SETTINGS"
 }
 
 interface RoutesState {

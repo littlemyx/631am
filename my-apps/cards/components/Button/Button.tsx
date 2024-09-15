@@ -27,8 +27,8 @@ export const Button = ({
         [styles.normalWidth]: !fullWidth,
         [styles.fullWidth]: fullWidth,
         [styles.small]: size === ButtonSizes.SMALL,
-        [styles.big]: size === ButtonSizes.BIG,
-        [styles.normal]: size === ButtonSizes.NORMAL
+        [styles.normal]: size === ButtonSizes.NORMAL,
+        [styles.big]: size === ButtonSizes.BIG
       })}
       {...rest}
     >

@@ -6,9 +6,10 @@ import { Wrapper } from "./pages/Wrapper";
 import { Main } from "./pages/Main";
 import { AddNew } from "./pages/AddNew";
 import { Challenge } from "./pages/Challenge";
+import { Edit } from "./pages/Edit";
+import { Settings } from "./pages/Settings";
 
 import styles from "./index.module.css";
-import { Edit } from "./pages/Edit";
 
 export const Routes = () => {
   const route = useRoutesStore(state => state.route);
@@ -38,6 +39,14 @@ export const Routes = () => {
         <Wrapper title="Edit">
           <div className={styles.container}>
             <Edit />
+          </div>
+        </Wrapper>
+      );
+    case RouteStates.SETTINGS:
+      return (
+        <Wrapper title="Settings">
+          <div className={styles.container}>
+            <Settings />
           </div>
         </Wrapper>
       );

@@ -14,8 +14,6 @@ import {
   StateSchema,
   StoreType
 } from "./types";
-import { error } from "console";
-import { stat } from "fs";
 
 export const useCardsStore = create<StoreType>()(
   immer(
