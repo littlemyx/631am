@@ -4,6 +4,8 @@ import { useRoutesStore, RouteStates } from "../../stores/router";
 import { useCardsStore } from "../../stores/cards";
 
 import styles from "./Main.module.css";
+import { Button } from "../../components/Button";
+import { CogIcon } from "@/icons/Cog";
 
 export const Main = () => {
   const changeRoute = useRoutesStore(store => store.change);
@@ -39,6 +41,14 @@ export const Main = () => {
             Edit
           </button>
         </div>
+      </div>
+      <div className={styles.footer}>
+        <Button
+          className={styles.cogButton}
+          onClick={() => changeRoute(RouteStates.SETTINGS)}
+        >
+          <CogIcon width={20} height={20} />
+        </Button>
       </div>
     </div>
   );
