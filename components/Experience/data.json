@@ -4,9 +4,13 @@
     "position": "Senior Software Developer",
     "period": { "from": "15.01.2023", "to": null },
     "achievements": [
+      "All in all was creating a lot of different app, tools, workflows, builders and all things you can imagine that can be used in the process of the (continious) development and integration, testing and supporting web apps and services.",
       "Developing the Grazie browser extension, AI chat platform, admin panels and auxilary web services.",
       "Set up analytics pipeline based on Google Analytics and Google Tag Manager (including product analytics for the extension).",
-      "Introduced the testing environment (unit, e2e, visual regression) for all projects on Playwright and Jest."
+      "Introduced the testing environment (unit, e2e, visual regression) for all projects on Playwright and Jest.",
+      "Developed and maintained a chat-kit platform for creating chat-with-ai apps",
+      "Built and supported an internal ai-providers-aggregator app",
+      "Currently patticipating in unannounced AI-project as a lead module developer and core-cuntional team participant"
     ]
   },
   {
