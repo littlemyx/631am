@@ -40,7 +40,19 @@ const projects: Project[] = [
       from: "2020",
       to: "2021"
     }
-  }
+  },
+  {
+    name: "Anthill Builder",
+    position: "Co-Founder / Developer",
+    description:
+      "Multi-agent taskboard builder for any type of users' workflows",
+    website: "https://anthillnet.com/",
+    status: "freezed",
+    period: {
+      from: "2024",
+      to: "present"
+    }
+  },
 ];
 
 const PetProjects = () => {
