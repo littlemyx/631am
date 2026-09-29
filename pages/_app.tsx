@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import "../styles/globals.css";
+import { installCheatGate } from "../utils/cheatGate";
 import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
@@ -12,6 +14,8 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  useEffect(() => installCheatGate(), []);
+
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? (page => page);
 
