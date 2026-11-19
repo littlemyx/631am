@@ -2,3 +2,19 @@
   text-align: center;
   line-height: 24px;
 }
+
+.clock {
+  white-space: nowrap;
+}
+
+/* Blinks like a real clock: visible for half a second, hidden for half, once per second.
+   visibility (not display) keeps the width so the text doesn't jump. */
+.colon {
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
+  }
+}
