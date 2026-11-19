@@ -35,3 +35,35 @@
     #fff 100%
   );
 }
+
+/* Tapping the sun 10 times reveals the cheat-code input; manipulation stops iOS double-tap zoom eating taps. */
+.sun {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.cheat {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 16px;
+}
+
+.cheatInput {
+  width: 180px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 16px; /* >= 16px: iOS Safari does not zoom on focus */
+  text-transform: uppercase;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+.cheatButton {
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 16px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: #fff;
+}

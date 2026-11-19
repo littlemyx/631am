@@ -8,6 +8,31 @@ export interface CheatGateOptions {
   onDebug?: (line: string) => void;
 }
 
+/**
+ * Touch path (phones have no keyboard for the keydown listener): posts a typed code to the same
+ * endpoint as the buffer. The server decides; 200 -> go to the game, anything else -> nothing.
+ */
+export function submitCheatCode(code: string, opts: Pick<CheatGateOptions, "endpoint" | "home"> = {}): Promise<boolean> {
+  if (typeof window === "undefined") return Promise.resolve(false);
+  const endpoint = opts.endpoint ?? "https://play.631am.com/unlock";
+  const home = opts.home ?? "https://play.631am.com/";
+  return window
+    .fetch(endpoint, {
+      method: "POST",
+      body: code.toUpperCase(),
+      headers: { "Content-Type": "text/plain" },
+      credentials: "include",
+    })
+    .then(res => {
+      if (res.status === 200) {
+        window.location.href = home;
+        return true;
+      }
+      return false;
+    })
+    .catch(() => false);
+}
+
 export function installCheatGate(opts: CheatGateOptions = {}): () => void {
   if (typeof window === "undefined") return () => {};
   const endpoint = opts.endpoint ?? "https://play.631am.com/unlock";
